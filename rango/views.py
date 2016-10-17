@@ -1,13 +1,11 @@
 from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def index(request):
-    about_link = '<a href="/rango/about/">About</a>'
+    context_dict = {"boldmessage": "Crunchy, creamy, cookie, candy, cupcake!"}
 
-    return HttpResponse("Rango says hey there partner!" +
-                        " Do you know the 'about' page yet?" +
-                        " If not have a look under: " +
-                        about_link)
+    return render(request, "rango/index.html", context=context_dict)
 
 
 def about(request):
