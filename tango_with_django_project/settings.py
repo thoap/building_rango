@@ -21,6 +21,9 @@ TEMPLATE_DIR = os.path.join(BASE_DIR, "templates")
 # CREATING A PATH TO IMAGES
 STATIC_DIR = os.path.join(BASE_DIR, "static")
 
+# CREATING PATH TO MEDIA
+MEDIA_DIR = os.path.join(BASE_DIR, "media")
+
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
@@ -70,6 +73,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'django.template.context_processors.media',
             ],
         },
     },
@@ -126,5 +130,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATICFILES_DIRS = [STATIC_DIR, ]
-
 STATIC_URL = '/static/'
+
+# Media files
+MEDIA_ROOT = MEDIA_DIR
+MEDIA_URL = '/media/'
+
+

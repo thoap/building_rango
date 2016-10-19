@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+import random
 
 
 def index(request):
@@ -9,7 +10,9 @@ def index(request):
 
 
 def about(request):
-    index_link = '<a href="/rango/">Main page</a>'
+    name = random.choice(["Jerry Seinfeld", "George Costanza", "Kramer",
+                          "your cat", "Elaine Bennet"])
 
-    return HttpResponse("Rango says here is the about page. </br>" +
-                        index_link)
+    name_dict = {"tutcreator": name}
+
+    return render(request, "rango/about.html", context=name_dict)
